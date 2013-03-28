@@ -1,0 +1,41 @@
+--- 
+...
+--- !ruby/object:Student
+name: Johnny
+email: JohnnyBowman@gmail.com
+tv: 30 Rock
+reason_for_joining: Meet chicks
+github_user: JohnnyBowmanJr
+twitter: JohnBowmanJr
+fun_fact: I have a twin
+--- !ruby/object:Instructor
+name: Ms. Frazzle
+email: frazzle@magicschoolsubs.com
+github_user: Frazzle
+twitter: Frazzle
+fun_fact: I have a magic school bus
+type: magical
+--- 
+...
+--- 
+...
+--- 
+...
+--- 
+...
+--- 
+...
+--- 
+...
+--- 
+...
+--- 
+...
+--- !ruby/object:Student
+name: Johnny
+email: johnnybowman
+github_user: johnnybowmanjr
+twitter: johnbowmanjr
+fun_fact: got 5 kids
+tv: martin
+reason_for_joining: The Singularity

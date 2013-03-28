@@ -9,27 +9,40 @@ class Person
   attr_accessor :fun_fact
   attr_accessor :ask_questions
 
-  def self.ask_questions(person)
+  def buncha_questions
     print "What is your name? "
-    person.name = gets.strip.chomp
+    self.name = gets.strip.chomp
     print "What is your email? "
-    person.email = gets.strip.chomp
+    self.email = gets.strip.chomp
     print "What is your github handle? "
-    person.github_user = gets.strip.chomp
+    self.github_user = gets.strip.chomp
     print "What is your twitter handle? "
-    person.twitter = gets.strip.chomp
+    self.twitter = gets.strip.chomp
     print "Lemme know a fun fact about yourself? "
-    person.fun_fact = gets.strip.chomp
+    self.fun_fact = gets.strip.chomp
   end
 end
 
 class Student < Person
   attr_accessor :reason_for_joining
   attr_accessor :tv
+  
+  def initialize
+    print "What is your favorite T.V. show? "
+    self.tv = gets.strip.chomp
+    print "What's your reason for joining? "
+    self.reason_for_joining = gets.strip.chomp
+  end
+  
 end
 
 class Instructor < Person
   attr_accessor :type
+
+  def initialize
+    print "What sort of instructor are you? "
+    self.type = gets.strip.chomp
+  end
 end
 
 @directory = ""
@@ -42,17 +55,11 @@ while ((input = gets.strip.chomp) != 'q') do
   case input
   when 'Student' 
     person = Student.new
-    Person.ask_questions(person)
-    print "What is your favorite T.V. show? "
-    person.tv = gets.strip.chomp
-    print "What's your reason for joining? "
-    person.reason_for_joining = gets.strip.chomp
-    
+    person.buncha_questions
+
   when 'Instructor'
     person = Instructor.new
-    Person.ask_questions(person)
-    print "What sort of instructor are you? "
-    person.type = gets.strip.chomp
+    person.buncha_questions
   end
   
   # Append this to our yaml file
