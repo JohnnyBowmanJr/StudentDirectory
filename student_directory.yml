@@ -1,41 +1,119 @@
---- 
-...
---- !ruby/object:Student
-name: Johnny
-email: JohnnyBowman@gmail.com
-tv: 30 Rock
-reason_for_joining: Meet chicks
-github_user: JohnnyBowmanJr
-twitter: JohnBowmanJr
-fun_fact: I have a twin
---- !ruby/object:Instructor
-name: Ms. Frazzle
-email: frazzle@magicschoolsubs.com
-github_user: Frazzle
-twitter: Frazzle
-fun_fact: I have a magic school bus
-type: magical
---- 
-...
---- 
-...
---- 
-...
---- 
-...
---- 
-...
---- 
-...
---- 
-...
---- 
-...
---- !ruby/object:Student
-name: Johnny
-email: johnnybowman
-github_user: johnnybowmanjr
-twitter: johnbowmanjr
-fun_fact: got 5 kids
-tv: martin
-reason_for_joining: The Singularity
+--- ! '--- !ruby/object:Student
+
+  tv: 30 Rock
+
+  reason_for_joining: chicks
+
+  name: Johnny
+
+  email: JohnnyBowman@gmail.com
+
+  github_user: JohnnyBowmanJr
+
+  twitter: johnbowmanjr
+
+  fun_fact: I''m a twin
+
+'
+--- ! '--- !ruby/object:Student
+
+  tv: Sally
+
+  reason_for_joining: s
+
+  name: f
+
+  email: s
+
+  github_user: f
+
+  twitter: s
+
+  fun_fact: f
+
+'
+--- ! '--- !ruby/object:Student
+
+  tv: mork and mindy
+
+  reason_for_joining: i''m craaaaaaaazy
+
+  name: benjid
+
+  email: bensdecker@gmail.com
+
+  github_user: bdecker19
+
+  twitter: bdecker19
+
+  fun_fact: i''m craaaaaazy
+
+'
+--- ! '--- !ruby/object:Student
+
+  tv: ''24''
+
+  reason_for_joining: To learn to code
+
+  name: Mathilda
+
+  email: mathildathompson288@gmail.com
+
+  github_user: mathildathompson
+
+  twitter: mathildathompson288
+
+  fun_fact: I was attacked by a brown bear when I was 4
+
+'
+--- ! '--- !ruby/object:Student
+
+  tv: The Simpsons
+
+  reason_for_joining: To make cool stuff and make lots of monayyy
+
+  name: Jen
+
+  email: jennolim@gmail.com
+
+  github_user: jennojenno
+
+  twitter: jenno
+
+  fun_fact: I''m Korean so I should be good at Starcraft but I''m not
+
+'
+--- ! '--- !ruby/object:Student
+
+  tv: House of Cards
+
+  reason_for_joining: I wanted to learn to code
+
+  name: Roman
+
+  email: rome.gun@gmail.com
+
+  github_user: RomanG
+
+  twitter: WhoIsRomanGun
+
+  fun_fact: I have a foot tattoo
+
+'
+--- ! '--- !ruby/object:Student
+
+  tv: The Wire
+
+  reason_for_joining: To learn coding
+
+  name: Joe
+
+  email: joseph.simoes@gmail.com
+
+  github_user: jacs1
+
+  twitter: JSimoes01
+
+  fun_fact: I have 14 fingers
+
+'

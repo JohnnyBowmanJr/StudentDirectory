@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'yaml'
+require 'pry'
 
 class Person
   attr_accessor :name
@@ -45,29 +46,41 @@ class Instructor < Person
   end
 end
 
-@directory = ""
+@directory = []
 puts "Student Directory, v0.0.2 by Johnny Bowman"
-print "Enter Student or Instructor, q to save and quit: "
+print "Enter Student or Instructor,  to load the directory, or q to save and quit: "
 
 while ((input = gets.strip.chomp) != 'q') do
 
-  person = nil
   case input
-  when 'Student' 
-    person = Student.new
-    person.buncha_questions
+    when 'Student' 
+      person = Student.new
+      person.buncha_questions
+      @directory << person
 
-  when 'Instructor'
-    person = Instructor.new
-    person.buncha_questions
+    when 'Instructor'
+      person = Instructor.new
+      person.buncha_questions
+      @directory << person
+
+    when "l"
+      @directory << YAML.load_documents(File.open('student_directory.yml'))
+
   end
+
   
   # Append this to our yaml file
-  @directory += person.to_yaml
+   
   puts @directory
   
-  print "Enter Student or Instructor, q to save and quit: "
+  print "Enter Student or Instructor, l to load the Directory, or q to save and quit: "
 end
-
 # Open a student_directory.yml YAML file and write it out on one line
-File.open('student_directory.yml', 'a') { |f| f.write(@directory) } 
+
+# Save people to a YAML file
+File.open('student_directory.yml', 'a') { |f|
+  @directory.compact.each do |person|
+    f.write(person.to_yaml)
+  end 
+}
+
