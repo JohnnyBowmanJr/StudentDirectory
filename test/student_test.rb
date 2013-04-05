@@ -18,6 +18,7 @@ class StudentTest < Test::Unit::TestCase
       student.name = "Susan"
       student.email = "susan@gmail.com"
       student.reason_for_joining = "I love coding too"
+      binding.pry
       student.save
 
       # If it worked, we should have one record in the people database called Susan
@@ -35,5 +36,6 @@ class StudentTest < Test::Unit::TestCase
   def teardown
     Person.close_database
   end
-
 end
+
+Person.db.execute("insert into people (name, email, reason_for_joining) values (?, ?, ?)", self.name, self.email, self.reason_for_joining)

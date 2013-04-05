@@ -10,7 +10,7 @@ require_relative 'instructor'
 # Now the program actually starts here.
 #
 begin
-  Person.open_database "student_directory.db"
+  @@db = Person.open_database "student_directory.db"
   puts "Student Directory, v0.0.3 by Dan Garland"
   print 'Enter Student or Instructor, p to print, s to search, q to quit: '
 
@@ -18,8 +18,11 @@ begin
 
     case input
     when 'p'
-      # Find all the people who are in the database 
-      # and print out their information
+      
+      results = @@db.execute("select * from people")
+      results.each do |row|
+        puts row
+      end
 
     when 's'
       # Ask the user to enter a search term

@@ -16,7 +16,7 @@ class PersonTest < Test::Unit::TestCase
     assert_equal 2, people.length
 
     # Test that the first record can be retrieved
-    assert_equal 1, people[0].id
+    assert_equal 1, people[0].id  
     assert_equal Instructor, people[0].class
     assert_equal "Dan", people[0].name
     assert_equal "dan@dangarland.co.uk", people[0].email
@@ -32,7 +32,7 @@ class PersonTest < Test::Unit::TestCase
 
   def test_find_by_name_gives_me_the_right_person
     people = Person.find_by_name("Dan")
-    assert_equal 1, people.length
+      
     assert_equal 1, people[0].id
     assert_equal "Dan", people[0].name
 
