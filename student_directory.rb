@@ -15,31 +15,30 @@ begin
   print 'Enter Student or Instructor, p to print, s to search, q to quit: '
 
   while ((input = gets.strip.chomp) != 'q') do
-
     case input
     when 'p'
-      
       results = @@db.execute("select * from people")
       results.each do |row|
         puts row
       end
-
     when 's'
       # Ask the user to enter a search term
       print "Please enter the search term that you're looking for: "
       search = gets.strip.chomp
-
       # Find all the people who's name matches the given string
       # and print out their information
-
+      search_result = @@db.execute("select * from people where name like '%#{search}%'")
+      binding.pry
+      search_result.each do |row|
+        puts row
+      end
+    
     else
       # Create either a Student or Instructor object, depending on the input
       person = Person.create_person(input)
-
       unless person.nil?
         # Prompt the user for information about a Person
         person.ask_questions
-
         # Save someone in our database
         person.save
       end 

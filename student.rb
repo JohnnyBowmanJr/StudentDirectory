@@ -24,14 +24,13 @@ class Student < Person
   #
   def save
     # Build a String of SQL, that will insert all the attributes into the persons table
-    sql = "insert into people (name, email, reason_for_joining) values (?, ?, ?)"
+    sql = "insert into people (type, name, email, reason_for_joining) values (?, ?, ?, ?)"
     # Execute the SQL and provide the actual values
     
-    @@db.execute(sql, student.name, self.email, self.reason_for_joining)
+    @@db.execute(sql, self.class.to_s, name, self.email, self.reason_for_joining)
     
     # Execute the SQL on the @@db object
   end
 
 end
 
-#Person.db.execute("insert into people (name, email, reason_for_joining) values (?, ?, ?)", student.name, student.email, student.reason_for_joining)

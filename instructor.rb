@@ -23,8 +23,9 @@ class Instructor < Person
   # TODO - Persists this Instructor object to the database
   #
   def save
-    # Build a String of SQL, that will insert all the attributes into the persons table
+    sql = "insert into people (type, name, email, reason_for_joining) values (?, ?, ?, ?)"
+    # Execute the SQL and provide the actual values
 
-    # Execute the SQL on the @@db object    
+    @@db.execute(sql, self.class.to_s, self.name, self.email, self.iq)  
   end
 end

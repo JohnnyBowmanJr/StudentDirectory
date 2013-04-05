@@ -11,6 +11,7 @@ class Person
   #
   def self.open_database(name)
     @@db = SQLite3::Database.new(name)
+
   end
 
   # Close the database (HINT - don't need to change this)
