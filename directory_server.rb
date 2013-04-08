@@ -1,80 +1,94 @@
 require 'sinatra'
 require 'rubygems'
 require 'shotgun'
+require "sinatra/reloader"
 require 'pry'
 require 'rack-flash'
 require 'sqlite3'
 
-require_relative 'student_directory.rb'
-require_relative 'instructor.rb'
-require_relative 'student.rb'
-require_relative 'person.rb'
+require_relative 'instructor'
+require_relative 'student'
 
 enable :sessions
 use Rack::Flash
 
+before do
+  unless session[:current_user]  || request.path == "/login"
+    redirect '/login'
+  end
+end
+
+get '/login' do
+  erb :login
+end
+
+post '/login' do
+  if params[:password] == "p"
+    session[:current_user] = params[:username]
+    redirect '/'
+  else
+    flash[:notice] = "That's not the password, silly"
+    redirect '/login'
+  end
+end
+
 get '/' do
-  erb :index
+  db = SQLite3::Database.new("student_directory.db")
+  records = db.execute("select * from people")
+  erb :index, :locals => {:records => records}
+end
+
+get '/search' do
+  db = SQLite3::Database.new("student_directory.db")
+  people = db.execute("select * from people where name like '%#{params[:name]}%'")
+  erb :list, :locals => {:people => people}
+
+end
+
+get '/add' do
+  erb :add
+end
+
+post '/add_instructor' do
+   
+  person = Instructor.new
+  name = params[:name]
+  email = params[:email]
+  iq = params[:iq]
+  person.assign_values(name, email, iq)
+  redirect '/'
+end
+
+post '/add_student' do
+  person = Student.new
+  name = params[:name]
+  email = params[:email]
+  reason = params[:reason]
+  person.assign_values(name, email, reason)
+  redirect '/'
+end
+
+get '/remove' do
+  db = SQLite3::Database.new("student_directory.db")
+  records = db.execute("select * from people")
+  erb :delete, :locals => {:records => records}
+end
+
+post '/remove' do
+  db = SQLite3::Database.new("student_directory.db")
+
+  delete_ids = []
+  params[:id].each do |id|
+    delete_ids << id.to_i
+  end
+  delete_ids = delete_ids.join(",")
+  sql = "DELETE FROM people WHERE id IN ('#{delete_ids}')"
+  db.execute(sql)
+  redirect '/'
 end
 
 
-# before '/' do
-# 	unless params[:password] == "p"
-# 		redirect :login
-# 	end
-# end
 
-# post '/login' do
-# 	if params[:password] == "p"
-# 		redirect '/index'
-# 	else
-# 		flash[:notice] = "That's not the password, silly"
-# 		redirect '/login'
-# 	end
-# end
-
-
-# post '/film' do
-#   db = SQLite3::Database.new("movies.db")
-
-#   films = db.execute("select * from movies where title = '#{params[:name]}'")
-#   if films.length > 0 	
-#   	puts "Cache HIT"
-#   	#db_film = films.first
-#   	db_film = films.first
-#   	film = Movie.get_film_from_db_info(db_film)
-#   	# Use the film info from the database
-#   elsif Movie.get_film_info((params[:name].gsub(" ","%20")))
-#   	puts "Cache MISS"
-#   	# Lookup the film information on the web
-#     spacefix = params[:name].gsub(" ","%20")
-#     film = Movie.get_film_info(spacefix)
-#     # store the film in the database
-#     film.save
-#   else
-#   	error 404 
-#   end
-# 	erb :film, :locals => {:film => film}
-# end
-
-# get '/index' do
-# 	erb :index
-# end
-
-# get '/film' do 
-# 	unless params[:name]
-# 		redirect 'login'
-# 	end
-# 	erb :film
-# end
-
-# get '/login' do
-# 	erb :login
-# end
-
-# not_found do
-#     erb :error
-# end
 
 
 

@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/normalize.css">
 		<title>Johnny's Student Directory</title>
 </head>
 
 <body>
 	<div id="header">
-		Johnny's Student Directory
+		<h1>
+				<a href="/">General Assembly Directory</a>
+		</h1>
+		<div class="nav">
+			<a href="/add">Add a Person</a> |  <a href="/remove">Remove a Person</a>
+		</div>
 	</div>
-	<%= yield %>
+	
+	<div class="general-container">
+		<%= yield %>
+	</div>
 
 
 </body>

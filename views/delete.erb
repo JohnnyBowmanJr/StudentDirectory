@@ -1,0 +1,28 @@
+<div id="delete-container">
+	<p>Check the people you'd like to delete from the Directory</p>
+	
+	<form action="/remove" method="POST">
+		<table id="delete-table">
+			<tr>
+					<th></th>
+					<th>Type</th>
+					<th>Name</th>
+					<th>Email</th>
+			</tr>
+			<% records.each do |record| %>
+				<tr>
+					<td>
+					<label for="id"></label>
+					<input type="checkbox" name="id[]" value="<%= record[0] %>" /></td>
+					<td><%= record[1] %></td>
+					<td><%= record[2] %></td>
+					<td><%= record[3] %></td>
+				</tr>
+			<% end %>
+		</table>
+		<div id="delete-button-container">
+			<input type="submit" value="Delete these People" id="delete-button">
+		</div>
+	</form>
+</div>
+

@@ -1,1 +1,223 @@
-main.css
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* Layout.erb CSS */
+
+html {
+	background-color: white;
+}
+
+#header {
+	background-color: #6CADEE;
+	text-align: center;
+	font-weight: bold;
+	padding: 15px;
+	margin-bottom: 30px;
+	opacity:0.9;
+}
+
+
+#header a {
+	text-decoration: none;
+	color: black;
+}
+
+h1 a {
+	text-decoration: none;
+	color: black;
+}
+
+.general-container {
+	background-color: #def0f9;
+	opacity:0.9;
+	width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+	border-radius: 10px;
+	padding: 10px 10px 20px 10px;
+
+}
+
+.general-container:before, .general-container:after {
+	content: "";
+	display: table;
+}
+
+.general-container:after {
+	clear: both;
+}
+
+/* Login.erb CSS */
+#login {
+	width: 150;
+	text-align: center;
+}
+
+
+
+
+/*Add.erb CSS */
+
+#form-container {
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#instructor-form {
+	width: 300px;
+	float:left;
+	margin-right: 20px;
+}
+
+#student-form {
+	width: 250px;
+	float:right;
+	margin-left: 20px;
+}
+
+#student-form {
+	width: 250px;
+	float:right;
+	margin-left: 20px;
+}
+
+/*Index.erb CSS */
+
+table#index-table {
+	margin-top: 30px;
+	width: 650px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+th {
+	font-weight: bold;
+	text-align: left;
+	padding-bottom: 5px;
+}
+
+td {
+	padding-top: 15px;
+}
+
+tr th:first-child {
+	width: 90px;
+}
+
+tr th:nth-child(2) {
+	width: 140px;
+}
+
+tr th:nth-child(3) {
+	width: 220px;
+}
+
+tr th:nth-child(4) {
+	width: 50px;
+}
+
+#index-table tr th:nth-child(5) {
+	width: 150px;
+}
+
+/*Search.erb CSS */
+
+#search-container {
+	text-align: center;
+}
+
+#search-container p {
+	font-weight: bold;
+}
+
+/*Delete.erb CSS */
+
+#delete-container {
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#delete-table {
+	width: 450px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#delete-table tr th:first-child {
+	width: 40px;
+}
+
+#delete-table tr th:nth-child(2) {
+	width: 80px;
+}
+
+#delete-table tr th:nth-child(3) {
+	width: 120px;
+}
+
+#delete-table tr th:nth-child(4) {
+	width: 210px;
+}
+
+#delete-container p {
+	text-align: center;
+	font-weight: bold;
+	font-size: 15pt;
+}
+
+#delete-button-container {
+	text-align: center;
+}
+
+input#delete-button {
+	background: red;
+	margin-top: 15px;
+  border-radius: 5px;
+  color: white;
+
+}

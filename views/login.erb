@@ -1,0 +1,13 @@
+<div id="login">
+	<div class="flash">
+		<%= flash[:notice] %>
+	</div>
+	<p>Are you a fraud? Prove it.</p>
+	<form action="/login" method="POST">
+		<label for="username">Email:</label>
+		<input type="text" name="username" />
+		<label for="password">Password:</label>
+		<input type="password" name="password" /><br /><br />
+		<input type="submit" value="Submit">
+	</form>
+</div>

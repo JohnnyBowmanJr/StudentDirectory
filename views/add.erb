@@ -1,0 +1,35 @@
+<div id="form-container">
+	<div id="instructor-form">
+		<h2>Add an Instructor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Or</h2>
+
+		<form action="/add_instructor" method="POST">
+			<label for="name">Name</label><br>
+			<input type="text" name="name" /><br><br>
+			
+			<label for="email">Email Address</label><br>
+			<input type="text" name="email" /><br><br>
+
+			<label for="iq">IQ</label><br>
+			<input type="text" name="iq" /><br><br>
+
+			<input type="submit" value="Add Instructor">
+		</form>
+	</div>
+
+	<div id="student-form">
+		<h2>Add a Student</h2>
+
+		<form action="/add_student" method="POST">
+			<label for="name">Name</label><br>
+			<input type="text" name="name" /><br><br>
+			
+			<label for="email">Email Address</label><br>
+			<input type="text" name="email" /><br><br>
+
+			<label for="reason">Reason For Joining</label><br>
+			<input type="text" name="reason" /><br><br>
+
+			<input type="submit" value="Add Student">
+		</form>
+	</div>
+</div>
